@@ -60,7 +60,7 @@
     {"id":{"name":"obj_road_t_south","path":"objects/obj_road_t_south/obj_road_t_south.yy",},},
     {"id":{"name":"obj_road_t_west","path":"objects/obj_road_t_west/obj_road_t_west.yy",},},
     {"id":{"name":"obj_road_x","path":"objects/obj_road_x/obj_road_x.yy",},},
-    {"id":{"name":"obj_Road","path":"objects/obj_Road/obj_Road.yy",},},
+    {"id":{"name":"obj_road","path":"objects/obj_road/obj_road.yy",},},
     {"id":{"name":"obj_Stone","path":"objects/obj_Stone/obj_Stone.yy",},},
     {"id":{"name":"obj_Tile","path":"objects/obj_Tile/obj_Tile.yy",},},
     {"id":{"name":"obj_Wood","path":"objects/obj_Wood/obj_Wood.yy",},},

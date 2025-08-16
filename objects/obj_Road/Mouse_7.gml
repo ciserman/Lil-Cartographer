@@ -8,14 +8,14 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
 
 		var existing_tile = ds_grid_get(global.tile_grid, gx, gy);
 
-		if (existing_tile == undefined || instance_exists(existing_tile) && existing_tile.object_index != obj_Road) {
+		if (existing_tile == undefined || instance_exists(existing_tile) && existing_tile.object_index != obj_road) {
             placed = true;
 
             var cell_w = obj_FiveByFiveGrid.sprite_width / obj_FiveByFiveGrid.grid_size;
             var cell_h = obj_FiveByFiveGrid.sprite_height / obj_FiveByFiveGrid.grid_size;
 
-            x = obj_FiveByFiveGrid.x + gx * cell_w + cell_w/2;
-            y = obj_FiveByFiveGrid.y + gy * cell_h + cell_h/2;
+            x = obj_FiveByFiveGrid.x + gx * cell_w;
+            y = obj_FiveByFiveGrid.y + gy * cell_h + cell_h;
 
             ds_grid_set(global.tile_grid, gx, gy, id);
 

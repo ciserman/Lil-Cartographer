@@ -12,8 +12,8 @@
     "path":"folders/Objects/tiles/road_tiles.yy",
   },
   "parentObjectId":{
-    "name":"obj_Road",
-    "path":"objects/obj_Road/obj_Road.yy",
+    "name":"obj_road",
+    "path":"objects/obj_road/obj_road.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
