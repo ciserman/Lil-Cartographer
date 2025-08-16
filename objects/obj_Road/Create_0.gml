@@ -10,3 +10,4 @@ north = false;
 east = false;
 south = false;
 west = false;
+tile_type="road";

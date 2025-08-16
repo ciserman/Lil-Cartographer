@@ -1,5 +1,5 @@
 if (place_meeting(x, y, obj_FiveByFiveGrid)) {
-    var coords = get_grid_coords(x, y);
+    var coords = get_grid_coords(x + obj_road.sprite_width/2, y + obj_road.sprite_height/2);
     var gx = coords[0];
     var gy = coords[1];
 
@@ -15,7 +15,7 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
             var cell_h = obj_FiveByFiveGrid.sprite_height / obj_FiveByFiveGrid.grid_size;
 
             x = obj_FiveByFiveGrid.x + gx * cell_w;
-            y = obj_FiveByFiveGrid.y + gy * cell_h + cell_h;
+            y = obj_FiveByFiveGrid.y + gy * cell_h;
 
             ds_grid_set(global.tile_grid, gx, gy, id);
 
@@ -33,6 +33,7 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
 		            case "magic":  magic  += 1; break;
 		            case "brick":  brick  += 1; break;
 		            case "water":  water  += 1; break;
+					case "road": break;
 		        }
 		    }
 
