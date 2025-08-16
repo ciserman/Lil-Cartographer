@@ -9,9 +9,12 @@
   "overriddenProperties":[],
   "parent":{
     "name":"resource_tiles",
-    "path":"folders/Objects/resource_tiles.yy",
+    "path":"folders/Objects/tiles/resource_tiles.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_Resource",
+    "path":"objects/obj_Resource/obj_Resource.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

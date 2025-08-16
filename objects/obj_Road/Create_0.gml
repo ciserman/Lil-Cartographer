@@ -5,3 +5,8 @@ grid_x = undefined;
 grid_y = undefined;
 
 depth = -y;
+
+north = false;
+east = false;
+south = false;
+west = false;
