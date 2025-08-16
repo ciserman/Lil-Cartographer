@@ -32,7 +32,7 @@ ds_list_add(tile_types,obj_Gold,obj_Stone,obj_Wood)
 
 // We loop for as many times as there are tiles
 // in the puzzle
-for(var _i = 0; _i < ((grid_size*grid_size) -1); _i += 1) {
+for(var _i = 0; _i < ((grid_size*grid_size) ); _i += 1) {
 	// We create the tile
 	var current_tile = ds_list_find_value(tile_types,random_range(0,3));
 	var _tile = instance_create_layer(x, y, "Instances", current_tile);

@@ -7,8 +7,10 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
         gy >= 0 && gy < obj_FiveByFiveGrid.grid_size) {
 
 		var existing_tile = ds_grid_get(global.tile_grid, gx, gy);
+		
+		neighborCheck = checkNeighborRoads(gx, gy)
 
-		if (existing_tile == undefined || instance_exists(existing_tile) && existing_tile.object_index != obj_road) {
+		if (existing_tile == undefined || instance_exists(existing_tile) && existing_tile.object_index != obj_road && neighborCheck) {
             placed = true;
 
             var cell_w = obj_FiveByFiveGrid.sprite_width / obj_FiveByFiveGrid.grid_size;
@@ -57,4 +59,39 @@ function resetToHand() {
 
 if (id == global.held_object) {
     global.held_object = noone;
+}
+
+
+function checkNeighborRoads(gx,gy){
+	
+		canConnectNorth = true;
+		canConnectSouth = true;
+		canConnectEast = true;
+		canConnectWest = true;
+		
+	if gy != 0 {
+		northNeighbor = ds_grid_get(global.tile_grid, gx, gy-1);
+		if (northNeighbor.object_index == obj_road){
+			canConnectNorth = northNeighbor.south && north;
+		}
+	}
+	if gy != obj_FiveByFiveGrid.grid_size-1 {
+		southNeighbor = ds_grid_get(global.tile_grid, gx, gy+1)
+		if (southNeighbor.object_index == obj_road){
+			canConnectSouth = southNeighbor.north && south;
+		}
+	}
+	if  gx != obj_FiveByFiveGrid.grid_size-1{
+		eastNeighbor = ds_grid_get(global.tile_grid, gx+1, gy)
+		if (eastNeighbor.object_index == obj_road){
+			canConnectEast = eastNeighbor.west && east;
+		}
+	}
+	if gx != 0 {
+		westNeighbor = ds_grid_get(global.tile_grid, gx-1, gy)
+		if (westNeighbor.object_index == obj_road){
+			canConnectWest= westNeighbor.east && west;
+		}
+	}
+	return canConnectNorth || canConnectSouth || canConnectEast || canConnectWest
 }
