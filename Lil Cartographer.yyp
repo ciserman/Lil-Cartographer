@@ -8,7 +8,7 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
+  "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation Curves.yy","name":"Animation Curves","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -35,13 +35,19 @@
   },
   "name":"Lil Cartographer",
   "resources":[
-    {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
-    {"id":{"name":"Map1","path":"rooms/Map1/Map1.yy",},},
+    {"id":{"name":"obj_FiveByFiveGrid","path":"objects/obj_FiveByFiveGrid/obj_FiveByFiveGrid.yy",},},
+    {"id":{"name":"obj_hand","path":"objects/obj_hand/obj_hand.yy",},},
+    {"id":{"name":"obj_tile","path":"objects/obj_tile/obj_tile.yy",},},
+    {"id":{"name":"FiveByFiveMap","path":"rooms/FiveByFiveMap/FiveByFiveMap.yy",},},
+    {"id":{"name":"Shop","path":"rooms/Shop/Shop.yy",},},
+    {"id":{"name":"spr_Tile","path":"sprites/spr_Tile/spr_Tile.yy",},},
+    {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Map1","path":"rooms/Map1/Map1.yy",},},
+    {"roomId":{"name":"FiveByFiveMap","path":"rooms/FiveByFiveMap/FiveByFiveMap.yy",},},
+    {"roomId":{"name":"Shop","path":"rooms/Shop/Shop.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
