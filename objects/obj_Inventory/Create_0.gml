@@ -1,0 +1,9 @@
+global.wood = 0;
+global.stone = 0;
+global.iron = 0;
+global.gold = 0;
+global.meat = 0;
+global.copper = 0;
+global.magic = 0;
+global.brick = 0;
+global.water = 0;

@@ -2,6 +2,16 @@
 // puzzle is different every time
 randomize();
 
+wood = 0;
+stone = 0;
+iron = 0;
+gold = 0;
+meat = 0;
+copper = 0;
+magic = 0;
+brick = 0;
+water = 0;
+
 _particle = part_system_create();
 
 global.move_list = ds_list_create();

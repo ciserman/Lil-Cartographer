@@ -1,0 +1,27 @@
+diff a/Lil Cartographer.yyp b/Lil Cartographer.yyp	(rejected hunks)
+@@ -48,21 +48,25 @@
+      {"id":{"name":"FiveByFiveMap","path":"rooms/FiveByFiveMap/FiveByFiveMap.yy",},},
+      {"id":{"name":"Shop","path":"rooms/Shop/Shop.yy",},},
+      {"id":{"name":"get_grid_coords","path":"scripts/get_grid_coords/get_grid_coords.yy",},},
+++<<<<<<< Updated upstream
+ +    {"id":{"name":"road_de","path":"sprites/road_de/road_de.yy",},},
+ +    {"id":{"name":"road_dn","path":"sprites/road_dn/road_dn.yy",},},
+ +    {"id":{"name":"road_ds","path":"sprites/road_ds/road_ds.yy",},},
+ +    {"id":{"name":"road_dw","path":"sprites/road_dw/road_dw.yy",},},
+ +    {"id":{"name":"road_i_ew","path":"sprites/road_i_ew/road_i_ew.yy",},},
+ +    {"id":{"name":"road_i_ns","path":"sprites/road_i_ns/road_i_ns.yy",},},
+ +    {"id":{"name":"road_l_ne","path":"sprites/road_l_ne/road_l_ne.yy",},},
+ +    {"id":{"name":"road_l_nw","path":"sprites/road_l_nw/road_l_nw.yy",},},
+ +    {"id":{"name":"road_l_se","path":"sprites/road_l_se/road_l_se.yy",},},
+ +    {"id":{"name":"road_l_sw","path":"sprites/road_l_sw/road_l_sw.yy",},},
+ +    {"id":{"name":"road_t_e","path":"sprites/road_t_e/road_t_e.yy",},},
+ +    {"id":{"name":"road_t_n","path":"sprites/road_t_n/road_t_n.yy",},},
+ +    {"id":{"name":"road_t_s","path":"sprites/road_t_s/road_t_s.yy",},},
+ +    {"id":{"name":"road_t_w","path":"sprites/road_t_w/road_t_w.yy",},},
+ +    {"id":{"name":"road_x","path":"sprites/road_x/road_x.yy",},},
+++=======
++     {"id":{"name":"Script2","path":"scripts/Script2/Script2.yy",},},
+++>>>>>>> Stashed changes
+      {"id":{"name":"spr_Gold","path":"sprites/spr_Gold/spr_Gold.yy",},},
+      {"id":{"name":"spr_Stone","path":"sprites/spr_Stone/spr_Stone.yy",},},
+      {"id":{"name":"spr_Tile","path":"sprites/spr_Tile/spr_Tile.yy",},},
