@@ -1,4 +1,3 @@
-if ( !placed ) {
-    x = mouse_x;
-    y = mouse_y;
+if ( !placed && global.held_object == noone) {
+	global.held_object = id;
 }

@@ -1,0 +1,1 @@
+global.held_object = noone;

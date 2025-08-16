@@ -38,3 +38,6 @@ function resetToHand() {
     y = starting_y;
     placed = false;
 }
+if (id == global.held_object) {
+    global.held_object = noone;
+}
