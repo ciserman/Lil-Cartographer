@@ -40,17 +40,21 @@ if (layer_get_visible("ShopLayer")==false && !on_ui_layer && place_meeting(x, y,
             grid_x = gx;
             grid_y = gy;
 			
+			var yield = existing_tile.resource_yield;
+			if (isDeadEnd == true)	{
+				yield *= 2;
+			}
 			with (obj_FiveByFiveGrid) {
 		        switch (existing_tile.tile_type) {
-		            case "wood":  wood  += 1; break;
-		            case "stone": stone += 1; break;
-		            case "iron":  iron  += 1; break;
-		            case "gold":  gold  += 1; break;
-		            case "meat":  meat  += 1; break;
-		            case "copper": copper += 1; break;
-		            case "magic":  magic  += 1; break;
-		            case "brick":  brick  += 1; break;
-		            case "water":  water  += 1; break;
+		            case "wood":  global.wood  += yield; break;
+		            case "stone": global.stone += yield; break;
+		            case "iron":  global.iron  += yield; break;
+		            case "gold":  global.gold  += yield; break;
+		            case "meat":  global.meat  += yield; break;
+		            case "copper": global.copper += yield; break;
+		            case "magic":  global.magic  += yield; break;
+		            case "brick":  global.brick  += yield; break;
+		            case "water":  global.water  += yield; break;
 					case "road": break;
 		        }
 		    }
