@@ -19,11 +19,12 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
 		westNeighbor = ds_grid_get(global.tile_grid, gx-1, gy);
 		
 		ds_list_add(neighborsList, northNeighbor,southNeighbor,eastNeighbor,westNeighbor);
-		
-		neighborCheck = checkNeighborRoads(gx, gy);
-		neighborsRoadCheck = isNextToRoad(gx,gy);
+		var neighborCheck = checkNeighborRoads(gx, gy, neighborsList);
 
-		if (existing_tile == undefined || instance_exists(existing_tile) && existing_tile.object_index != obj_road && neighborCheck && neighborsRoadCheck) {
+		if (existing_tile == undefined
+			|| instance_exists(existing_tile) 
+			&& existing_tile.object_index != obj_road 
+			&& neighborCheck) {
             placed = true;
 
             var cell_w = obj_FiveByFiveGrid.sprite_width / obj_FiveByFiveGrid.grid_size;
@@ -74,51 +75,38 @@ if (id == global.held_object) {
     global.held_object = noone;
 }
 
-function isNextToRoad(gx, gy){
-	isNorthNeighborRoad = false;
-	isSouthNeighborRoad = false;
-	isEastNeighborRoad = false;
-	isWestNeighborRoad = false;
-	if gy != 0 {
-		isNorthNeighborRoad = ds_list_find_value(neighborsList,0).object_index.tile_type == "road";
-	}
-	if gy != obj_FiveByFiveGrid.grid_size-1 {
-		isSouthNeighborRoad = ds_list_find_value(neighborsList,1).object_index.tile_type == "road";
-	}
-	if  gx != obj_FiveByFiveGrid.grid_size-1{
-		isEastNeighborRoad = ds_list_find_value(neighborsList,2).object_index.tile_type == "road";
-	}
-	if gx != 0 {
-		isWestNeighborRoad = ds_list_find_value(neighborsList,3).object_index.tile_type == "road";
-	}
-	return isNorthNeighborRoad || isSouthNeighborRoad || isEastNeighborRoad || isWestNeighborRoad;
-}
-
-function checkNeighborRoads(gx,gy){
+function checkNeighborRoads(gx,gy, neighborsList){
+	
 	canConnectNorth = false;
 	canConnectSouth = false;
-	canConnectEast	= false;
-	canConnectWest	= false;
+	canConnectEast = false;
+	canConnectWest = false;
 		
 	if gy != 0 {
-		if (ds_list_find_value(neighborsList,0).object_index.tile_type == "road" ){
-			canConnectNorth = ds_list_find_value(neighborsList,0).south == north;
+		var northNeighbor = ds_list_find_value(neighborsList,0);
+		if (northNeighbor.object_index.tile_type == "road" ){
+			canConnectNorth = ds_list_find_value(neighborsList,0).south && north;
 		}
 	}
 	if gy != obj_FiveByFiveGrid.grid_size-1 {
-		if (ds_list_find_value(neighborsList,1).object_index.tile_type == "road" ){
-			canConnectSouth = ds_list_find_value(neighborsList,1).north == south;
+		var southNeighbor = ds_list_find_value(neighborsList,1);
+		if (southNeighbor.object_index.tile_type == "road" ){
+			canConnectSouth = ds_list_find_value(neighborsList,1).north && south;
 		}
 	}
 	if  gx != obj_FiveByFiveGrid.grid_size-1{
-		if (ds_list_find_value(neighborsList,2).object_index.tile_type == "road" ){
-			canConnectEast = ds_list_find_value(neighborsList,2).west == east;
+		var eastNeighbor = ds_list_find_value(neighborsList,2);
+		if (eastNeighbor.object_index.tile_type == "road" ){
+			canConnectEast = ds_list_find_value(neighborsList,2).west && east;
 		}
 	}
 	if gx != 0 {
-		if (ds_list_find_value(neighborsList,3).object_index.tile_type == "road" ){
-			canConnectWest= ds_list_find_value(neighborsList,3).east == west;
+		var westNeighbor = ds_list_find_value(neighborsList,3);
+		if (westNeighbor.object_index.tile_type == "road" ){
+			canConnectWest= ds_list_find_value(neighborsList,3).east && west;
 		}
 	}
-	return canConnectNorth && canConnectSouth && canConnectEast && canConnectWest
+	return canConnectNorth || canConnectSouth || canConnectEast || canConnectWest
 }
+
+ds_list_clear(neighborsList);
