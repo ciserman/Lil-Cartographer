@@ -11,3 +11,5 @@ east = false;
 south = false;
 west = false;
 tile_type="road";
+
+neighborsList = ds_list_create();
