@@ -71,25 +71,25 @@ function checkNeighborRoads(gx,gy){
 		
 	if gy != 0 {
 		northNeighbor = ds_grid_get(global.tile_grid, gx, gy-1);
-		if (northNeighbor.object_index == obj_road){
+		if (northNeighbor.object_index.tile_type == "road" ){
 			canConnectNorth = northNeighbor.south && north;
 		}
 	}
 	if gy != obj_FiveByFiveGrid.grid_size-1 {
 		southNeighbor = ds_grid_get(global.tile_grid, gx, gy+1)
-		if (southNeighbor.object_index == obj_road){
+		if (southNeighbor.object_index.tile_type == "road" ){
 			canConnectSouth = southNeighbor.north && south;
 		}
 	}
 	if  gx != obj_FiveByFiveGrid.grid_size-1{
 		eastNeighbor = ds_grid_get(global.tile_grid, gx+1, gy)
-		if (eastNeighbor.object_index == obj_road){
+		if (eastNeighbor.object_index.tile_type == "road" ){
 			canConnectEast = eastNeighbor.west && east;
 		}
 	}
 	if gx != 0 {
 		westNeighbor = ds_grid_get(global.tile_grid, gx-1, gy)
-		if (westNeighbor.object_index == obj_road){
+		if (westNeighbor.object_index.tile_type == "road" ){
 			canConnectWest= westNeighbor.east && west;
 		}
 	}

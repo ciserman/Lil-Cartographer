@@ -61,3 +61,24 @@ for(var _i = 0; _i < ((grid_size*grid_size) ); _i += 1) {
 		grid_y = _grid_y;
 	}
 }
+
+
+createTileAt(2,4,obj_road_x)
+
+function createTileAt(x_cord,y_cord, obj_create){
+	var old_tile_instance = ds_grid_get(global.tile_grid, x_cord, y_cord);
+	if (instance_exists(old_tile_instance)) {
+		instance_destroy(old_tile_instance);
+	}
+	var screen_x = x + x_cord * global.tile_width;
+	var screen_y = y + y_cord * global.tile_height;
+	
+	var new_tile = instance_create_layer(screen_x,screen_y, "Instances", obj_create);
+	
+	ds_grid_set(global.tile_grid, x_cord, y_cord, new_tile);
+	
+	with (new_tile)	{
+		grid_x = x_cord;
+		grid_y = y_cord;
+	}
+}
