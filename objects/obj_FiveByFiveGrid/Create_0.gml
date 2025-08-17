@@ -28,13 +28,14 @@ global.tile_grid = ds_grid_create(grid_size, grid_size);
 ds_grid_clear(global.tile_grid, undefined);
 
 tile_types = ds_list_create()
-ds_list_add(tile_types,obj_Gold,obj_Stone,obj_Wood)
+ds_list_add(tile_types,obj_Gold,obj_Stone,obj_Stone,obj_Wood, obj_Wood, obj_Wood)
 
 // We loop for as many times as there are tiles
 // in the puzzle
 for(var _i = 0; _i < ((grid_size*grid_size) ); _i += 1) {
 	// We create the tile
-	var current_tile = ds_list_find_value(tile_types,random_range(0,3));
+	var random_tile_index = random_range(0,6);
+	var current_tile = ds_list_find_value(tile_types, random_tile_index);
 	var _tile = instance_create_layer(x, y, "Instances", current_tile);
 	
 	
