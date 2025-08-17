@@ -1,8 +1,7 @@
 draw_self();
-draw_text(x+5,y+5,resource_yield);
 for (var i = 0; i < resource_yield; ++i) {
-	var locx;
-	var locy;
+	var locx = 0;
+	var locy = 0;
 	switch (i) {
 	    case 0: locx = 0;
 				locy = 0;
