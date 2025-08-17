@@ -18,11 +18,10 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
 		eastNeighbor = ds_grid_get(global.tile_grid, gx+1, gy);
 		westNeighbor = ds_grid_get(global.tile_grid, gx-1, gy);
 		
-		neighborsList = ds_list_create();
 		ds_list_add(neighborsList, northNeighbor,southNeighbor,eastNeighbor,westNeighbor);
 		
-		neighborCheck = checkNeighborRoads(gx, gy, neighborsList);
-		neighborsRoadCheck = isNextToRoad(gx,gy, neighborsList);
+		neighborCheck = checkNeighborRoads(gx, gy);
+		neighborsRoadCheck = isNextToRoad(gx,gy);
 
 		if (existing_tile == undefined || instance_exists(existing_tile) && existing_tile.object_index != obj_road && neighborCheck && neighborsRoadCheck) {
             placed = true;
@@ -96,11 +95,10 @@ function isNextToRoad(gx, gy){
 }
 
 function checkNeighborRoads(gx,gy){
-	
-		canConnectNorth = true;
-		canConnectSouth = true;
-		canConnectEast = true;
-		canConnectWest = true;
+	canConnectNorth = false;
+	canConnectSouth = false;
+	canConnectEast	= false;
+	canConnectWest	= false;
 		
 	if gy != 0 {
 		if (ds_list_find_value(neighborsList,0).object_index.tile_type == "road" ){

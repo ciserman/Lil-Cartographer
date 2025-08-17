@@ -63,7 +63,7 @@ for(var _i = 0; _i < ((grid_size*grid_size) ); _i += 1) {
 }
 
 
-createTileAt(2,4,obj_road_x)
+createTileAt(2,4,obj_road_x);
 
 function createTileAt(x_cord,y_cord, obj_create){
 	var old_tile_instance = ds_grid_get(global.tile_grid, x_cord, y_cord);
@@ -80,5 +80,7 @@ function createTileAt(x_cord,y_cord, obj_create){
 	with (new_tile)	{
 		grid_x = x_cord;
 		grid_y = y_cord;
+		placed = true;
 	}
+	
 }
