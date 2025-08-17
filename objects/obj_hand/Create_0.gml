@@ -1,4 +1,5 @@
 global.hand = ds_list_create();
+global.hand_size = 5;
 ds_list_add(global.hand, obj_road, obj_road, obj_road, obj_road, obj_road);
 
 for(var i = 0; i < ds_list_size(global.hand); i += 1) {	
@@ -20,4 +21,3 @@ for(var i = 0; i < ds_list_size(global.hand); i += 1) {
 	
 	instance_create_layer( obj_Hand.x + (i * 144), obj_Hand.y, "Instances", chosenRoad );
 }
-

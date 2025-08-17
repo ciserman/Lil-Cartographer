@@ -3,7 +3,7 @@ var southNeighbor;
 var eastNeighbor;
 var westNeighbor;
 
-if (place_meeting(x, y, obj_FiveByFiveGrid) && !on_ui_layer) {
+if (layer_get_visible("ShopLayer")==false && !on_ui_layer && place_meeting(x, y, obj_FiveByFiveGrid)) {
     var coords = get_grid_coords(x + obj_road.sprite_width/2, y + obj_road.sprite_height/2);
     var gx = coords[0];
     var gy = coords[1];
@@ -33,6 +33,9 @@ if (place_meeting(x, y, obj_FiveByFiveGrid) && !on_ui_layer) {
             y = obj_FiveByFiveGrid.y + gy * cell_h;
 
             ds_grid_set(global.tile_grid, gx, gy, id);
+			
+			var hand_index = ds_list_find_index(global.hand, id);
+			ds_list_delete(global.hand, hand_index);
 
             grid_x = gx;
             grid_y = gy;
@@ -65,16 +68,17 @@ else {
 }
 
 function resetToHand() {
-    x = starting_x;
-    y = starting_y;
-    placed = false;
+	if (!placed) {
+		x = starting_x;
+		y = starting_y;
+	}
 }
 
 if (id == global.held_object) {
     global.held_object = noone;
 }
 
-function checkNeighborRoads(gx,gy, neighborsList){
+function checkNeighborRoads(gx, gy, neighborsList){
 	var valid = true;
 	var hasAMatchingRoad = false;
 		
