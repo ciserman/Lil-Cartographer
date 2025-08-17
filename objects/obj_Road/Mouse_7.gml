@@ -3,13 +3,13 @@ var southNeighbor;
 var eastNeighbor;
 var westNeighbor;
 
-if (layer_get_visible("ShopLayer")==false && !on_ui_layer && place_meeting(x, y, obj_FiveByFiveGrid)) {
+if (layer_get_visible("ShopLayer")==false && !on_ui_layer && place_meeting(x, y, obj_SevenBySevenGrid)) {
     var coords = get_grid_coords(x + obj_road.sprite_width/2, y + obj_road.sprite_height/2);
     var gx = coords[0];
     var gy = coords[1];
 
-    if (gx >= 0 && gx < obj_FiveByFiveGrid.grid_size &&
-        gy >= 0 && gy < obj_FiveByFiveGrid.grid_size) {
+    if (gx >= 0 && gx < obj_SevenBySevenGrid.grid_size &&
+        gy >= 0 && gy < obj_SevenBySevenGrid.grid_size) {
 
 		var existing_tile = ds_grid_get(global.tile_grid, gx, gy);
 		
@@ -26,11 +26,11 @@ if (layer_get_visible("ShopLayer")==false && !on_ui_layer && place_meeting(x, y,
 			&& neighborCheck) {
             placed = true;
 
-            var cell_w = obj_FiveByFiveGrid.sprite_width / obj_FiveByFiveGrid.grid_size;
-            var cell_h = obj_FiveByFiveGrid.sprite_height / obj_FiveByFiveGrid.grid_size;
+            var cell_w = obj_SevenBySevenGrid.sprite_width / obj_SevenBySevenGrid.grid_size;
+            var cell_h = obj_SevenBySevenGrid.sprite_height / obj_SevenBySevenGrid.grid_size;
 
-            x = obj_FiveByFiveGrid.x + gx * cell_w;
-            y = obj_FiveByFiveGrid.y + gy * cell_h;
+            x = obj_SevenBySevenGrid.x + gx * cell_w;
+            y = obj_SevenBySevenGrid.y + gy * cell_h;
 
             ds_grid_set(global.tile_grid, gx, gy, id);
 			
@@ -44,7 +44,7 @@ if (layer_get_visible("ShopLayer")==false && !on_ui_layer && place_meeting(x, y,
 			if (isDeadEnd == true)	{
 				yield *= 2;
 			}
-			with (obj_FiveByFiveGrid) {
+			with (obj_SevenBySevenGrid) {
 		        switch (existing_tile.tile_type) {
 		            case "wood":  global.wood  += yield; break;
 		            case "stone": global.stone += yield; break;
@@ -98,7 +98,7 @@ function checkNeighborRoads(gx, gy, neighborsList){
 			}
 		}
 	}
-	if gy != obj_FiveByFiveGrid.grid_size-1 {
+	if gy != obj_SevenBySevenGrid.grid_size-1 {
 		var southNeighbor = ds_list_find_value(neighborsList,1);
 		if (southNeighbor.object_index.tile_type == "road" ){
 			if (!(southNeighbor.north == south)) {
@@ -110,7 +110,7 @@ function checkNeighborRoads(gx, gy, neighborsList){
 			}
 		}
 	}
-	if  gx != obj_FiveByFiveGrid.grid_size-1{
+	if  gx != obj_SevenBySevenGrid.grid_size-1{
 		var eastNeighbor = ds_list_find_value(neighborsList,2);
 		if (eastNeighbor.object_index.tile_type == "road" ){
 			if (!(eastNeighbor.west == east)) {

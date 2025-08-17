@@ -5,6 +5,6 @@ west = true;
 south = true;
 east = true;
 
-cost_wood	=	3;
-cost_stone	=	3;
-cost_gold	=	3;
+cost_wood	=	2;
+cost_stone	=	2;
+cost_gold	=	2;

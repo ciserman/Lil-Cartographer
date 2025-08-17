@@ -22,10 +22,7 @@ global.won = false;
 global.tile_height = 128;
 global.tile_width = 128;
 
-if (grid_size != 0) {
-	grid_size = 5;
-}
-
+grid_size = 7;
 global.tile_grid = ds_grid_create(grid_size, grid_size);
 
 ds_grid_clear(global.tile_grid, undefined);
