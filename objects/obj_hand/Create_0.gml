@@ -1,8 +1,8 @@
 global.hand = ds_list_create();
+global.old_hand = ds_list_create();
 global.hand_size = 5;
-ds_list_add(global.hand, obj_road, obj_road, obj_road, obj_road, obj_road);
 
-for(var i = 0; i < ds_list_size(global.hand); i += 1) {	
+for(var i = 0; i < global.hand_size; i += 1) {	
 	chosenRoad = choose(obj_road_deadend_east,
 						obj_road_deadend_west,
 						obj_road_deadend_north,
@@ -18,6 +18,11 @@ for(var i = 0; i < ds_list_size(global.hand); i += 1) {
 						obj_road_t_south,
 						obj_road_t_west,
 						obj_road_x);
-	
-	instance_create_layer( obj_Hand.x + (i * 144), obj_Hand.y, "Instances", chosenRoad );
+	var tileInstance = createTileInstance(i, chosenRoad);	
+	ds_list_add(global.hand, tileInstance);
+	ds_list_add(global.old_hand, tileInstance);
+}
+
+function createTileInstance(handIndex, tile_object) {
+	return instance_create_layer( obj_Hand.x + (handIndex * 144), obj_Hand.y, "Instances", tile_object );
 }
