@@ -4,7 +4,9 @@ starting_y = y;
 grid_x = undefined;
 grid_y = undefined;
 
-depth = -y;
+if(!on_ui_layer)	{
+depth = -10;
+}
 
 north = false;
 east = false;

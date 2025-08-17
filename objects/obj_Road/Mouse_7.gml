@@ -3,7 +3,7 @@ var southNeighbor;
 var eastNeighbor;
 var westNeighbor;
 
-if (place_meeting(x, y, obj_FiveByFiveGrid)) {
+if (place_meeting(x, y, obj_FiveByFiveGrid) && !on_ui_layer) {
     var coords = get_grid_coords(x + obj_road.sprite_width/2, y + obj_road.sprite_height/2);
     var gx = coords[0];
     var gy = coords[1];
@@ -21,9 +21,8 @@ if (place_meeting(x, y, obj_FiveByFiveGrid)) {
 		ds_list_add(neighborsList, northNeighbor,southNeighbor,eastNeighbor,westNeighbor);
 		var neighborCheck = checkNeighborRoads(gx, gy, neighborsList);
 
-		if (existing_tile == undefined
-			|| instance_exists(existing_tile) 
-			&& existing_tile.object_index != obj_road 
+		if (instance_exists(existing_tile) 
+			&& !object_is_ancestor(existing_tile.object_index,obj_road) 
 			&& neighborCheck) {
             placed = true;
 
